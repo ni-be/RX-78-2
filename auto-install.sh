@@ -11,7 +11,7 @@ dnf install 'dnf-command(config-manager)'
 dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 dnf install gh
 
-dnf -y install gcc cmake llvm clang-tools-extra clingo golang helix rust cargo exa ripgrep gitui fzf zsh texlive foot brave-browser-beta fcitx5-mozc gnome-shell-extension-pop-shell
+dnf -y install gcc cmake llvm clang-tools-extra clingo golang nodejs-npm helix rust cargo exa ripgrep gitui fzf zsh texlive foot brave-browser-beta fcitx5-mozc gnome-shell-extension-pop-shell
 cargo install bartib felix tokei tealdeer rm-improved ouch git-delta ytop
 cargo install --locked starship bat zellij zoxide hyperfine broot
 
@@ -81,3 +81,16 @@ curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 brew install -y zig
+git clone https://github.com/zigtools/zls
+cd zls
+zig build -Doptimize=ReleaseSafe
+
+pip install cmake-language-server
+brew install marksman or yay -S marksman-bin
+brew install yaml-language-server
+cargo install taplo-cli --locked --features lsp
+
+# May require choosenim
+nimble install nimlangserver
+
+pip install -U 'python-lsp-server[all]'

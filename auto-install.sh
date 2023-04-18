@@ -11,7 +11,7 @@ dnf install 'dnf-command(config-manager)'
 dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 dnf install gh
 
-dnf -y install gcc cmake llvm clang-tools-extra clingo golang nodejs-npm helix rust cargo exa ripgrep gitui fzf zsh texlive foot brave-browser-beta fcitx5-mozc gnome-shell-extension-pop-shell
+dnf -y install python3-pip python3-wheel gcc cmake llvm clang-tools-extra clingo golang nodejs-npm helix rust cargo exa ripgrep gitui fzf zsh texlive foot brave-browser-beta fcitx5-mozc gnome-shell-extension-pop-shell
 cargo install bartib felix tokei tealdeer rm-improved ouch git-delta ytop
 cargo install --locked starship bat zellij zoxide hyperfine broot
 
@@ -81,16 +81,16 @@ curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
-pip install -y -U 'python-lsp-server[all]'
-pip install -y cmake-language-server python-lsp-ruff 
-brew install -y zig yaml-language-server lua-language-server marksman or yay -S marksman-bin
+pip install -U 'python-lsp-server[all]'
+pip install cmake-language-server python-lsp-ruff 
+brew install zig texlab yaml-language-server lua-language-server marksman 
 cargo install taplo-cli --locked --features lsp
 npm install -g typescript-language-server typescript intelephense
 npm i -g vscode-langservers-extracted bash-language-server
 
-go install golang.org/x/tools/gopls@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
+go install golang.org/x/tools/gopls@latest github.com/go-delve/delve/cmd/dlv@latest
 
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 # May require choosenim
 nimble install nimlangserver
 

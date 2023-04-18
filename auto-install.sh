@@ -80,17 +80,24 @@ curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD
 (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/nibe/.zprofile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-brew install -y zig
-git clone https://github.com/zigtools/zls
-cd zls
-zig build -Doptimize=ReleaseSafe
 
-pip install cmake-language-server
-brew install marksman or yay -S marksman-bin
-brew install yaml-language-server
+pip install -y -U 'python-lsp-server[all]'
+pip install -y cmake-language-server python-lsp-ruff 
+brew install -y zig yaml-language-server lua-language-server marksman or yay -S marksman-bin
 cargo install taplo-cli --locked --features lsp
+npm install -g typescript-language-server typescript intelephense
+npm i -g vscode-langservers-extracted bash-language-server
+
+go install golang.org/x/tools/gopls@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
 
 # May require choosenim
 nimble install nimlangserver
 
-pip install -U 'python-lsp-server[all]'
+git clone https://github.com/zigtools/zls
+cd zls
+zig build -Doptimize=ReleaseSafe
+
+git clone git@github.com:guntherwullaert/asp-language-server.git
+pnpm i 
+cargo build

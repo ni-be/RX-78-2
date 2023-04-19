@@ -21,25 +21,19 @@ rustup component add clippy
 dnf -y groupinstall 'Development Tools'
 dnf -y install procps-ng curl file git
 
-# CREATE DIRECTORIES
-mkdir /home/nibe/SHOSAI
-mkdir /home/nibe/ASP
-mkdir /home/nibe/CODE
-mkdir /home/nibe/WORK
-mkdir /home/nibe/PROJECTS
-mkdir /home/nibe/GIT
-mkdir -p /home/nibe/go
-
-
 && cd /home/nibe/GIT/rust-analyzer 
 cargo xtask install --server
 
 
-#DOWNLOAD GIT REPOS A=REPO B=LOCATION
-while read -r a b; do
-    git clone git@github.com:"$a".git "$b"
-done < gh-repos.txt
+#DOWNLOAD GIT REPOS A=REPO B=LOCATION C= name
 
+function zyx() {
+ mkdir -p /home/nibe/go  
+ while read -r a b c; do
+    mkdir -p "$b"
+    if [ -z ${c}]; then git clone git@github.com:"$a".git /home/nibe/"$b"; else git clone git@github.com:"$a".git /home/nibe/"$b"/"$c"; fi
+  done < gh-repos.txt  
+}
 #git clone ASP -> ASPRILO, TELINGO CLINGUIN etc, 
 # ZGMF-X20A symbolic LINKS 
 

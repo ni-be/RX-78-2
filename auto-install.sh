@@ -50,7 +50,10 @@ git clone git@github.com:nikolasbertrand/jkcnCom.git /home/nibe/PROJECTS/jkcnCOM
 git clone git@github.com:nikolasbertrand/theArchive.git /home/nibe/CODE/theArchive
 git clone git@github.com:nikolasbertrand/riet-jongerden-php.git /home/nibe/PROJECTS/riet-jongerden-php
 git clone git@github.com:nikolasbertrand/exercism.git /home/nibe/CODE/exercism
+
 git clone git@github.com:nikolasbertrand/temp_logic-python.git /home/nibe/ASP/temp_logic-python
+git clone git@github.com:potassco/asprilo-encodings.git /home/nibe/ASP/asprilo-encodings
+
 
 #git clone ASP -> ASPRILO, TELINGO CLINGUIN etc, 
 # ZGMF-X20A symbolic LINKS 
@@ -83,7 +86,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 pip install -U 'python-lsp-server[all]'
 pip install cmake-language-server python-lsp-ruff 
-brew install zig texlab yaml-language-server lua-language-server marksman 
+brew install zig texlab yaml-language-server lua-language-server marksman pyenv 
 cargo install taplo-cli --locked --features lsp
 npm install -g typescript-language-server typescript intelephense svelte-language-server
 npm i -g vscode-langservers-extracted bash-language-server

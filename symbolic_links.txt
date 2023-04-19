@@ -1,0 +1,18 @@
+/ZGMF-X20A/starship.toml 	starship.toml
+/ZGMF-X20A/.zshrc 			.zshrc
+/ZGMF-X20A/.zshenv 			.zshenv
+/ZGMF-X20A/helix 			.config/
+/ZGMF-X20A/broot 			.config/broot
+/ZGMF-X20A/foot 			.config/foot
+/ZGMF-X20A/gitui 			.config/gitui
+/ZGMF-X20A/nvim 			.config/nvim
+/ZGMF-X20A/wezterm 			.config/wezterm
+/ZGMF-X20A/zellij 			.config/zellij
+/ZGMF-X20A/zsh 				.config/zsh
+/ZGMF-X20A/felix 			.config/felix
+/XVX-016/.zsh_history 		.zsh_history
+/XVX-016/.gitconfig 		.gitconfig
+/XVX-016/exercism 			.config/exercism
+/ZGMF-X20A/fcitx5 			.config/fcitx5
+/ZGMF-X20A/autostart 		.config/autostart
+

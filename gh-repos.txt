@@ -1,0 +1,15 @@
+nikolasbertrand/kaku 						SHOSAI		kaku
+nikolasbertrand/jinsei 						SHOSAI		jinsei
+nikolasbertrand/hiyori 						SHOSAI		hiyori
+nikolasbertrand/XVX-016 					XVX-016
+nikolasbertrand/ZGMF-X20A 					ZGMF-X20A
+nikolasbertrand/machine-overlords 			PROJECTS	machine-overlords
+nikolasbertrand/nbertrandDEV 				PROJECTS	nbertrandDEV
+nikolasbertrand/jkcnCom 					PROJECTS	jkcnCOM
+nikolasbertrand/theArchive 					CODE		theArchive
+nikolasbertrand/riet-jongerden-php 			PROJECTS	riet-jongerden-php
+nikolasbertrand/exercism 					CODE		exercism
+nikolasbertrand/temp_logic-python 			ASP			temp_logic-python
+potassco/asprilo-encodings 					ASP			asprilo-encodings
+rust-lang/rust-analyzer						GIT			rust-analyzer
+zigtools/zls.git							LSP			zls

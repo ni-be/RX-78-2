@@ -31,62 +31,41 @@ mkdir /home/nibe/GIT
 mkdir -p /home/nibe/go
 
 
-git clone https://github.com/rust-lang/rust-analyzer.git /home/nibe/GIT/rust-analyzer && cd /home/nibe/GIT/rust-analyzer 
+&& cd /home/nibe/GIT/rust-analyzer 
 cargo xtask install --server
 
-cd /home/nibe
 
-# DOWNLOAD GIT REPOS
-git clone git@github.com:nikolasbertrand/kaku.git /home/nibe/SHOSAI/kaku
-git clone git@github.com:nikolasbertrand/jinsei.git /home/nibe/SHOSAI/jinsei
-git clone git@github.com:nikolasbertrand/hiyori.git /home/nibe/SHOSAI/hiyori
-
-git clone git@github.com:nikolasbertrand/XVX-016.git /home/nibe/XVX-016
-git clone git@github.com:nikolasbertrand/ZGMF-X20A.git /home/nibe/ZGMF-X20A
-
-git clone git@github.com:nikolasbertrand/machine-overlords.git /home/nibe/PROJECTS/machine-overlords
-git clone git@github.com:nikolasbertrand/nbertrandDEV.git /home/nibe/PROJECTS/nbertrandDEV
-git clone git@github.com:nikolasbertrand/jkcnCom.git /home/nibe/PROJECTS/jkcnCOM
-git clone git@github.com:nikolasbertrand/theArchive.git /home/nibe/CODE/theArchive
-git clone git@github.com:nikolasbertrand/riet-jongerden-php.git /home/nibe/PROJECTS/riet-jongerden-php
-git clone git@github.com:nikolasbertrand/exercism.git /home/nibe/CODE/exercism
-
-git clone git@github.com:nikolasbertrand/temp_logic-python.git /home/nibe/ASP/temp_logic-python
-git clone git@github.com:potassco/asprilo-encodings.git /home/nibe/ASP/asprilo-encodings
-
+#DOWNLOAD GIT REPOS A=REPO B=LOCATION
+while read -r a b; do
+    git clone git@github.com:"$a".git "$b"
+done < gh-repos.txt
 
 #git clone ASP -> ASPRILO, TELINGO CLINGUIN etc, 
 # ZGMF-X20A symbolic LINKS 
 
-ln -sf /home/nibe/ZGMF-X20A/starship.toml /home/nibe/starship.toml
-ln -sf /home/nibe/ZGMF-X20A/.zshrc /home/nibe/.zshrc
-ln -sf /home/nibe/ZGMF-X20A/.zshenv /home/nibe/.zshenv
-ln -sf /home/nibe/ZGMF-X20A/helix /home/nibe/.config/
-ln -sf /home/nibe/ZGMF-X20A/broot /home/nibe/.config/broot
-ln -sf /home/nibe/ZGMF-X20A/foot /home/nibe/.config/foot
-ln -sf /home/nibe/ZGMF-X20A/gitui /home/nibe/.config/gitui
-ln -sf /home/nibe/ZGMF-X20A/nvim /home/nibe/.config/nvim
-ln -sf /home/nibe/ZGMF-X20A/wezterm /home/nibe/.config/wezterm
-ln -sf /home/nibe/ZGMF-X20A/zellij /home/nibe/.config/zellij
-ln -sf /home/nibe/ZGMF-X20A/zsh /home/nibe/.config/zsh
-ln -sf /home/nibe/ZGMF-X20A/felix /home/nibe/.config/felix
-ln -sf /home/nibe/XVX-016/.zsh_history /home/nibe/.zsh_history
-ln -sf /home/nibe/XVX-016/.gitconfig /home/nibe/.gitconfig
-ln -sf /home/nibe/XVX-016/exercism /home/nibe/.config/exercism
-ln -sf /home/nibe/ZGMF-X20A/fcitx5 /home/nibe/.config/fcitx5
-ln -sf /home/nibe/ZGMF-X20A/autostart /home/nibe/.config/autostart
-
+while read -r a b; do
+   ln -sf /home/nibe/"$a" /home/nibe/"$b"
+done < symbolic_links.txt
 chsh -s $(which zsh)
 
-#INSTALL LINUX BREW
-curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh && .install.sh
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/nibe/.zprofile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+function brewinstall() {
+     #INSTALL LINUX BREW
+     curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh && .install.sh
+     (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/nibe/.zprofile
+     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+}
+
+function rust-analyzer-install() {
+  cd /home/nibe/GIT/rust-analyzer
+  cargo xtask install --server
+  cd ../
+}
 
 pip install -U 'python-lsp-server[all]'
 pip install cmake-language-server python-lsp-ruff 
-brew install zig texlab yaml-language-server lua-language-server marksman pyenv 
+brew install zig texlab yaml-language-server lua-language-server marksman  
 cargo install taplo-cli --locked --features lsp
 npm install -g typescript-language-server typescript intelephense svelte-language-server
 npm i -g vscode-langservers-extracted bash-language-server

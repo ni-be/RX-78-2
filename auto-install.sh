@@ -21,12 +21,7 @@ rustup component add clippy
 dnf -y groupinstall 'Development Tools'
 dnf -y install procps-ng curl file git
 
-&& cd /home/nibe/GIT/rust-analyzer 
-cargo xtask install --server
-
-
 #DOWNLOAD GIT REPOS A=REPO B=LOCATION C= name
-
 function zyx() {
  mkdir -p /home/nibe/go  
  while read -r a b c; do
@@ -40,6 +35,7 @@ function zyx() {
 while read -r a b; do
    ln -sf /home/nibe/"$a" /home/nibe/"$b"
 done < symbolic_links.txt
+
 chsh -s $(which zsh)
 
 
@@ -54,7 +50,8 @@ function brewinstall() {
 function rust-analyzer-install() {
   cd /home/nibe/GIT/rust-analyzer
   cargo xtask install --server
-  cd ../
+  cd ../zls
+  zig build -Doptimize=ReleaseSafe
 }
 
 pip install -U 'python-lsp-server[all]'
@@ -70,8 +67,4 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 # May require choosenim
 nimble install nimlangserver
 
-# git clone https://github.com/zigtools/zls
-# cd zls
-# zig build -Doptimize=ReleaseSafe
-
- cargo install --git https://git@github.com/guntherwullaert/asp-language-server
+cargo install --git https://git@github.com/guntherwullaert/asp-language-server

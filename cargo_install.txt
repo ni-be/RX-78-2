@@ -1,0 +1,3 @@
+bartib felix tokei tealdeer rm-improved ouch git-delta ytop starship bat zellij zoxide hyperfine broot
+taplo-cli --locked --features lsp
+--git https://git@github.com/guntherwullaert/asp-language-server

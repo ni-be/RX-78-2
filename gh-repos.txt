@@ -13,4 +13,4 @@ nikolasbertrand/temp_logic-python 			ASP			temp_logic-python
 potassco/asprilo-encodings 					ASP			asprilo-encodings
 rust-lang/rust-analyzer						GIT			rust-analyzer
 zigtools/zls.git							GIT			zls
-											
+Aloxaf/fzf-tab								GIT			fzf-tab								

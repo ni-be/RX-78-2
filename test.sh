@@ -1,4 +1,7 @@
+
+function zyx() {
   while read -r a b c; do
-    echo "$b"
-    if  [-z $c]; then echo"'$a' /home/nibe/'$b'"; else echo "$c"; fi
+    mkdir -p "$b"
+    if [ -z ${c}]; then git clone git@github.com:"$a".git /home/nibe/"$b"; else git clone git@github.com:"$a".git /home/nibe/"$b"/"$c"; fi
   done < gh-repos.txt  
+}

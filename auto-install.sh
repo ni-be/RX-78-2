@@ -13,13 +13,14 @@ function brewinstall() {
 dnf -y groupinstall 'Development Tools'
 dnf install 'dnf-command(config-manager)' 
 dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-dnf -y install procps-ng curl file git gh python3-pip python3-wheel clang-tools-extra lldb golang cargo zsh texlive fcitx5-mozc
+dnf -y install procps-ng curl file git gh python3-pip python3-wheel clang-tools-extra lldb golang cargo zsh texlive fcitx5-mozc zathura  zathura-pdf-mupdf zathura-cb zathura-djvu
 
 brew tap wez/wezterm-linuxbrew
-brew install clingo gcc cmake llvm node rust zig exa ripgrep gitui fzf tokei tealdeer rm-improved ouch git-delta btop bartib starship bat zoxide zellij broot hyperfine wezterm
-brew install texlab yaml-language-server lua-language-server marksman  
+brew install clingo gcc cmake llvm node rust zig exa ripgrep gitui fzf tokei tealdeer rm-improved ouch git-delta btop bartib starship bat zoxide zellij broot hyperfine wezterm rustup-init zls
+brew install texlab yaml-language-server lua-language-server marksman taplo
 
-
+flatpak install flathub us.zoom.Zoom
+flatpak install flathub com.discordapp.Discord
 
 rustup update 
 rustup component add clippy 
@@ -54,10 +55,10 @@ function rust-analyzer-install() {
   zig build -Doptimize=ReleaseSafe
 }
 
+pip install coverage
 pip install -U 'python-lsp-server[all]'
 pip install cmake-language-server python-lsp-ruff 
 
-cargo install taplo-cli --locked --features lsp
 npm install -g typescript-language-server typescript intelephense svelte-language-server
 npm i -g vscode-langservers-extracted bash-language-server
 

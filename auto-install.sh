@@ -17,7 +17,9 @@ dnf -y install procps-ng curl file git gh python3-pip python3-wheel clang-tools-
 
 brew tap wez/wezterm-linuxbrew
 brew install clingo gcc cmake llvm node rust zig exa ripgrep gitui fzf tokei tealdeer rm-improved ouch git-delta btop bartib starship bat zoxide zellij broot hyperfine wezterm rustup-init zls
-brew install texlab yaml-language-server lua-language-server marksman taplo
+brew install texlab yaml-language-server lua-language-server marksman taplo ocaml gcc@11
+dnf install opam 
+opam install ocaml-lsp-server
 
 flatpak install flathub us.zoom.Zoom
 flatpak install flathub com.discordapp.Discord
